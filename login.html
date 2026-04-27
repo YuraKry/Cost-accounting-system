@@ -17,7 +17,24 @@
         <input type="password" required>
         <span>Password</span>
     </div>
-    <button class="submit-bit">Login</button>
+    <button type="button" id="loginBtn" class="submit-btn">Login</button>
+    </div>
+
+    <script>
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            
+            const inputs = document.querySelectorAll('input');
+            const username = inputs[0].value;
+            const password = inputs[1].value;
+            if (username.trim() !== "" && password.trim() !== "") {
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('логін та пароль');
+            }
+        });
+    </script>
+</body>
+</html>
     </div>
 </body>
 </html>
