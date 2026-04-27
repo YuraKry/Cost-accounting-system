@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Облік витрат</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Додаткові стилі для зручності */
+        .dashboard-container {
+            background-color: #eede91;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .expense-item {
+            background: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-btn {
+            background: #d3694f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Мої витрати</h2>
+        
+        <div class="input-box">
+            <input type="text" id="nameInput" required>
+            <span>Назва витрати</span>
+        </div>
+        
+        <div class="input-box">
+            <input type="number" id="amountInput" required>
+            <span>Сума</span>
+        </div>
+
+        <div class="input-box">
+            <select id="categoryInput" style="width: 100%; padding: 10px; border-radius: 5px; border: none;">
+                <option value="Їжа">Їжа</option>
+                <option value="Транспорт">Транспорт</option>
+                <option value="Розваги">Розваги</option>
+                <option value="Інше">Інше</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" id="addBtn">Додати витрату</button>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.5);">
+
+        <div id="expenseList">
+            </div>
+
+        <h3 style="color: #fff; margin-top: 15px;">Разом: <span id="totalSum">0</span> грн</h3>
+    </div>
+
+    <script>
+        const addBtn = document.getElementById('addBtn');
+        const expenseList = document.getElementById('expenseList');
+        const totalSumLabel = document.getElementById('totalSum');
+        let total = 0;
+
+        addBtn.addEventListener('click', () => {
+            const name = document.getElementById('nameInput').value;
+            const amount = parseFloat(document.getElementById('amountInput').value);
+            const category = document.getElementById('categoryInput').value;
+
+            if (name && amount) {
+                // Створюємо елемент витрати
+                const item = document.createElement('div');
+                item.className = 'expense-item';
+                item.innerHTML = `
+                    <span><strong>${name}</strong> (${category})</span>
+                    <span>${amount} грн 
+                        <button class="delete-btn" onclick="this.parentElement.parentElement.remove(); updateSum(-${amount})">X</button>
+                    </span>
+                `;
+
+                expenseList.appendChild(item);
+                updateSum(amount);
+
+                // Очищуємо поля
+                document.getElementById('nameInput').value = '';
+                document.getElementById('amountInput').value = '';
+            }
+        });
+
+        function updateSum(val) {
+            total += val;
+            totalSumLabel.innerText = total;
+        }
+    </script>
+</body>
+</html>
