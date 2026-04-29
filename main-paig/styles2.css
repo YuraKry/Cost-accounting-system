@@ -73,3 +73,58 @@ input, select {
     padding: 10px;
     border-radius: 8px 0 0 8px;
 }
+
+
+.amount input {
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #d96b4c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+h2 {
+    margin: 20px 0 10px;
+}
+
+.total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: white;
+}
+
+.green {
+    background: #7da58a;
+}
+
+.red {
+    background: #c97b7b;
+}
+
+.price {
+    font-weight: bold;
+}
