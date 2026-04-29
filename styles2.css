@@ -16,3 +16,60 @@ body {
     max-width: 800px;
     margin: auto;
 }
+
+
+
+.card {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+.form-card {
+    padding: 20px;
+}
+
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+
+.input-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+
+.amount {
+    display: flex;
+    align-items: center;
+}
+
+
+.amount span {
+    background: #eee;
+    padding: 10px;
+    border-radius: 8px 0 0 8px;
+}
